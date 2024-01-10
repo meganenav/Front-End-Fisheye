@@ -9,7 +9,8 @@ else {
         const reponse = await fetch("data/photographers.json");
         const photographers = await reponse.json();
         const photographerInfos = photographers.photographers.filter(infos => infos.id == id);
-        return photographerInfos[0];
+        const photographerMedia = photographers.media.filter(photos => photos.photographerId == id);
+        return [photographerInfos[0], photographerMedia];
     }
 
     async function displayInfosPhotographer(photographerInfos) {
@@ -26,10 +27,22 @@ else {
         main.appendChild(priceDiv);
     }
 
+    async function displayMediaPhotographer(photographerMedia, name) {
+        const main = document.getElementById("main");
+        const section = document.createElement("section");
+        section.classList.add("media_section");
+        main.appendChild(section);
+        photographerMedia.forEach(function (media) {
+            const articleMedia = createMedia(media, name);
+            section.appendChild(articleMedia);
+        });
+    }
+
     async function init() {
         // Récupère les datas du photographe
         const photographer = await getPhotographer(id);
-        displayInfosPhotographer(photographer);
+        displayInfosPhotographer(photographer[0]);
+        displayMediaPhotographer(photographer[1], photographer[0].name);
     }
     
     init();
