@@ -38,3 +38,43 @@ function photographerTemplate(data) {
     }
     return { name, picture, getUserCardDOM }
 }
+
+    
+function photographerTemplateInfos(photographerInfos) {
+    const photographer = photographerInfos;
+    const name = photographer.name;
+    const portrait = photographer.portrait;
+    const picture = `assets/photographers/${portrait}`;
+    const city = photographer.city;
+    const country = photographer.country;
+    const tagline = photographer.tagline;
+    const price = photographer.price;
+
+    function getUserInfos() {
+        const article = document.createElement( 'article' );
+        const h1 = document.createElement("h1");
+        h1.textContent = name;
+        const pLocation = document.createElement("p");
+        pLocation.textContent = city + ", " + country;
+        pLocation.classList.add("location");
+        const pTagline = document.createElement("p");
+        pTagline.textContent = tagline;
+        pTagline.classList.add("tagline");
+        const img = document.createElement("img");
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", "Portrait du photographe " + name);
+        const priceDiv = document.createElement("div");
+        const likesP = document.createElement("p");
+        likesP.textContent = "likes";
+        const priceP = document.createElement("p");
+        priceP.textContent = price + "€ / jour";
+        priceDiv.classList.add("pricePhotographer");
+        priceDiv.appendChild(likesP);
+        priceDiv.appendChild(priceP);
+        article.appendChild(h1);
+        article.appendChild(pLocation);
+        article.appendChild(pTagline);
+        return {article, img, priceDiv};
+    }
+    return { getUserInfos };
+}
