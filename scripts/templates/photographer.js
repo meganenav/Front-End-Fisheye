@@ -53,6 +53,7 @@ function photographerTemplateInfos(photographerInfos) {
     function getUserInfos() {
         const article = document.createElement( 'article' );
         const h1 = document.createElement("h1");
+        h1.classList.add("name");
         h1.textContent = name;
         const pLocation = document.createElement("p");
         pLocation.textContent = city + ", " + country;

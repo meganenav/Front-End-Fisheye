@@ -16,7 +16,6 @@ function createMedia(media, name) {
         mediaHTML.setAttribute("controls", "");
         const src = document.createElement("source");
         src.setAttribute("src", link + media.video);
-        mediaHTML.setAttribute("alt", "Vidéo avec le titre " + media.title);
         mediaHTML.appendChild(src);
     }
     const divDetails = document.createElement("div");
