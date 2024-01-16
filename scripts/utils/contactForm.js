@@ -34,8 +34,8 @@ function validate(event) {
 
 const modal = document.getElementById("contact_modal");
 const modalHidden = modal.getAttribute("aria-hidden");
-document.addEventListener('keydown', (event) => {
-    if(modalHidden === "true" && event.key==='Escape') {
+document.addEventListener("keydown", (event) => {
+    if(modalHidden === "true" && event.key === "Escape") {
         closeModal();
     }
 });
