@@ -49,6 +49,7 @@ function photographerTemplateInfos(photographerInfos) {
     const country = photographer.country;
     const tagline = photographer.tagline;
     const price = photographer.price;
+    //const total_likes = getPhotographerLikes();
 
     function getUserInfos() {
         const article = document.createElement( 'article' );
@@ -65,13 +66,19 @@ function photographerTemplateInfos(photographerInfos) {
         img.setAttribute("src", picture);
         img.setAttribute("alt", "Portrait du photographe " + name);
         const priceDiv = document.createElement("div");
+        const likesSpan = document.createElement("span");
+        const likesImg = document.createElement("img");
         const likesP = document.createElement("p");
-        likesP.textContent = "likes";
+        likesP.classList.add("likes");
+        likesP.textContent = "0";
+        likesImg.setAttribute("src", "assets/icons/like_total.svg");
         const priceP = document.createElement("p");
         priceP.textContent = price + "€ / jour";
         priceDiv.classList.add("pricePhotographer");
-        priceDiv.appendChild(likesP);
+        priceDiv.appendChild(likesSpan);
         priceDiv.appendChild(priceP);
+        likesSpan.appendChild(likesP);
+        likesSpan.appendChild(likesImg);
         article.appendChild(h1);
         article.appendChild(pLocation);
         article.appendChild(pTagline);

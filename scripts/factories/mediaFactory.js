@@ -30,13 +30,23 @@ function createMedia(media, name, currentIndex) {
     const divDetails = document.createElement("div");
     const pTitle = document.createElement("p");
     pTitle.classList.add("title-media");
-    const pLikes = document.createElement("p");
     pTitle.textContent = media.title;
-    pLikes.textContent = "Likes";
+    const likesSpan = document.createElement("span");
+    const likesImg = document.createElement("img");
+    const likesP = document.createElement("p");
+    likesSpan.classList.add("likes");
+    likesP.classList.add("nb_likes");
+    likesP.setAttribute("id", "plikes-" + currentIndex);
+    likesP.textContent = "0";
+    likesImg.setAttribute("src", "assets/icons/like_single.svg");
+    likesImg.classList.add("likes_single_img");
+    likesImg.setAttribute("id", "likes-" + currentIndex);
     article.appendChild(a);
     a.appendChild(mediaHTML);
     article.appendChild(divDetails);
     divDetails.appendChild(pTitle);
-    divDetails.appendChild(pLikes);
+    divDetails.appendChild(likesSpan);
+    likesSpan.appendChild(likesP);
+    likesSpan.appendChild(likesImg);
     return article;
 }

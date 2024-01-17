@@ -38,6 +38,7 @@ else {
             section.appendChild(articleMedia);
             currentIndex++;
         });
+        likesAdd();
     }
 
     async function init() {
