@@ -4,16 +4,25 @@ function likesAdd() {
         let id = element.getAttribute("id").split("-");
         id = id[1];
         const pLikes = document.getElementById("plikes-" + id);
-        pLikes.innerHTML = "1";
-        getPhotographerLikes();
+        if(!pLikes.classList.contains("liked")){
+            pLikes.classList.add("liked");
+            let likes = parseInt(pLikes.innerHTML);
+            likes++;
+            pLikes.innerHTML = likes;
+            getPhotographerLikes();
+        }
     }));
 }
 
 function getPhotographerLikes() {
-    const nbLikesSingle = document.querySelectorAll(".nb_likes");
     let pTotalLikes = document.querySelector(".likes");
+    pTotalLikes.innerText = getPhotographerTotalLikes();
+}
+
+function getPhotographerTotalLikes() {
+    const nbLikesSingle = document.querySelectorAll(".nb_likes");
     let totalLikes = 0;
     nbLikesSingle.forEach((like => 
         totalLikes += parseInt(like.innerHTML)));
-    pTotalLikes.innerText = totalLikes;
+    return totalLikes;
 }

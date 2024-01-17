@@ -39,6 +39,7 @@ else {
             currentIndex++;
         });
         likesAdd();
+        getPhotographerLikes();
     }
 
     async function init() {

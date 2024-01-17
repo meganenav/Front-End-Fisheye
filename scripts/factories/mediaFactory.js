@@ -37,7 +37,7 @@ function createMedia(media, name, currentIndex) {
     likesSpan.classList.add("likes");
     likesP.classList.add("nb_likes");
     likesP.setAttribute("id", "plikes-" + currentIndex);
-    likesP.textContent = "0";
+    likesP.textContent = media.likes;
     likesImg.setAttribute("src", "assets/icons/like_single.svg");
     likesImg.classList.add("likes_single_img");
     likesImg.setAttribute("id", "likes-" + currentIndex);

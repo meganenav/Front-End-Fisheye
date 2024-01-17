@@ -49,7 +49,7 @@ function photographerTemplateInfos(photographerInfos) {
     const country = photographer.country;
     const tagline = photographer.tagline;
     const price = photographer.price;
-    //const total_likes = getPhotographerLikes();
+    const likes = 0;
 
     function getUserInfos() {
         const article = document.createElement( 'article' );
@@ -70,7 +70,7 @@ function photographerTemplateInfos(photographerInfos) {
         const likesImg = document.createElement("img");
         const likesP = document.createElement("p");
         likesP.classList.add("likes");
-        likesP.textContent = "0";
+        likesP.textContent = likes;
         likesImg.setAttribute("src", "assets/icons/like_total.svg");
         const priceP = document.createElement("p");
         priceP.textContent = price + "€ / jour";
