@@ -25,10 +25,39 @@ function validate(event) {
     const lastName = document.getElementById("last-name").value;
     const mail = document.getElementById("mail").value;
     const message = document.getElementById("message").value;
-    console.log("Prénom : " + firstName);
-    console.log("Nom : " + lastName);
-    console.log("Mail : " + mail);
-    console.log("Message : " + message);
+
+    const checkFirstName = checkInput(firstName, "name");
+    const checkLastName = checkInput(lastName, "name");
+    const checkMail = checkInput(mail, "mail");
+    const checkMessage = checkInput(message, "message");
+
+    if(checkFirstName && checkLastName && checkMail && checkMessage) {
+        console.log("Prénom : " + firstName);
+        console.log("Nom : " + lastName);
+        console.log("Mail : " + mail);
+        console.log("Message : " + message);
+    }
+    else {
+        console.log("Le formulaire comporte des erreurs.");
+        return false;
+    }
+    return false;
+}
+
+function checkInput(element, type) {
+    if(element && type === "name" && element.length > 2) {
+        return true;
+    }
+    if(element && type === "mail") {
+        let regex = new RegExp("^[a-z0-9\._-]+@[a-z0-9\._-]+\\.[a-z0-9\._-]+$");
+        let resultMail = regex.test(element);
+        if(resultMail) {
+            return true;
+        }
+    }
+    if(element && type === "message" && element.length > 5) {
+        return true;
+    }
     return false;
 }
 
