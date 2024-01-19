@@ -18,6 +18,18 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
+      <div class="tri">Trier par 
+        <div class="tri-elements">
+          <span><a class="popularity-sort">Popularité</a><img class="expand-button" src="assets/icons/expand_more.svg" /></span>
+        </div>
+        <div class="tri-elements-hidden">
+          <span><a class="popularity-sort-hidden">Popularité</a><img class="reduce-button" src="assets/icons/expand_less.svg" /></span>
+          <hr>
+          <a class="date-sort">Date</a>
+          <hr>
+          <a class="title-sort">Titre</a>
+        </div>
+      </div>
     </main>
     <div id="contact_modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal">
 			<div class="modal">
@@ -61,5 +73,6 @@
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
     <script src="scripts/utils/likes.js"></script>
+    <script src="scripts/utils/sort.js"></script>
   </body>
 </html>

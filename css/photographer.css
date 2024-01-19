@@ -72,17 +72,69 @@
     margin-left: 20px;
 }
 
+.tri {
+    margin: 30px 100px;
+    font-weight: 700;
+    display: flex;
+}
+
+.tri-elements, .tri-elements-hidden {
+    flex-direction: column;
+    background-color: #901C1C;
+    width: 170px;
+    margin-left: 100px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    z-index: 50;
+    position: absolute;
+}
+
+.tri-elements {
+    display: flex;
+    height: 50px;
+}
+
+.tri-elements-hidden {
+    display: none;
+    height: 170px;
+}
+
+.tri-elements span, .tri-elements-hidden span {
+    display: flex;
+    column-gap: 10px;
+}
+
+.tri-elements a, .tri-elements-hidden a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 0 10px 15px;
+}
+
+.tri-elements-hidden hr {
+    background-color: white;
+    width: 150px;
+}
+
+.expand-button, .reduce-button, .tri-elements-hidden a {
+    cursor: pointer;
+}
+
+.reduce-button {
+    position: relative;
+
+}
+
 .media_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 100px;
     row-gap: 20px;
-    margin: 50px 100px;
+    margin: 100px 100px;
 }
 
 .mediaElement {
     height: 300px;
-    width: 350px;
+    width: 100%;
     object-fit: cover;
     border-radius: 5px;
 }

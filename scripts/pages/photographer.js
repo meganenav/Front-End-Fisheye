@@ -32,14 +32,20 @@ else {
         const section = document.createElement("section");
         section.classList.add("media_section");
         main.appendChild(section);
+        displayMediaElements(photographerMedia, name);
+        likesAdd();
+        getPhotographerLikes();
+        sortFunction(photographerMedia, name);
+    }
+
+    function displayMediaElements(photographerMedia, name) {
+        const section = document.querySelector(".media_section");
         let currentIndex = 0;
         photographerMedia.forEach(function (media) {
             const articleMedia = createMedia(media, name, currentIndex);
             section.appendChild(articleMedia);
             currentIndex++;
         });
-        likesAdd();
-        getPhotographerLikes();
     }
 
     async function init() {
