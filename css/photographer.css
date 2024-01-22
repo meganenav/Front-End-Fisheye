@@ -247,10 +247,6 @@ form textarea {
     flex-direction: column;
 }
 
-#lightbox_modal header img {
-    cursor: pointer;
-}
-
 #lightbox_modal header{
     display: block;
     position: absolute;
@@ -271,6 +267,15 @@ form textarea {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.lightbox-controls {
+    display: flex;
+}
+
+.close-button {
+    margin-top: 50px;
+    cursor: pointer;
 }
 
 .lightbox .mediaLightbox {

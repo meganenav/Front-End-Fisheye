@@ -3,7 +3,7 @@ function displayLightbox(event, link, type, title, currentIndex) {
     event.preventDefault();
     const lightbox = document.getElementById("lightbox_modal");
     const lightboxContent = document.querySelector(".lightbox");
-    const titleMedia= document.querySelector(".title_media_element");    
+    const titleMedia = document.querySelector(".title_media_element");
     lightboxContent.innerHTML = "";
     titleMedia.innerHTML = "";
     const previousButton = document.createElement("img");
