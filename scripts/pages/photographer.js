@@ -30,12 +30,13 @@ else {
     async function displayMediaPhotographer(photographerMedia, name) {
         const main = document.getElementById("main");
         const section = document.createElement("section");
+        let mediaLiked = [];
         section.classList.add("media_section");
         main.appendChild(section);
         displayMediaElements(photographerMedia, name);
-        likesAdd();
+        likesAdd(mediaLiked);
         getPhotographerLikes();
-        sortFunction(photographerMedia, name);
+        sortFunction(photographerMedia, name, mediaLiked);
     }
 
     function displayMediaElements(photographerMedia, name) {

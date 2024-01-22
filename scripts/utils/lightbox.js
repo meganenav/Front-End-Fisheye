@@ -64,7 +64,6 @@ function carouselMedia(currentIndex, direction) {
     const mediaElements = document.querySelectorAll(".mediaElement");
     const titleMedia = document.querySelectorAll(".title-media");
     let newIndex = currentIndex + direction;
-    console.log(newIndex);
     if(newIndex >= mediaElements.length) {
         newIndex = 0;
     }

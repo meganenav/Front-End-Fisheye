@@ -1,3 +1,4 @@
+//Création du média avec ses likes, son titre
 function createMedia(media, name, currentIndex) {
     const article = document.createElement("article");
     const a = document.createElement("a");
@@ -11,7 +12,7 @@ function createMedia(media, name, currentIndex) {
         a.setAttribute("href", link + media.image);
         a.setAttribute("onclick", "return displayLightbox(event,'" + link + media.image + "', 'image', '" + media.title + "', '" + currentIndex + "')");
         mediaHTML = document.createElement("img");
-        mediaHTML.setAttribute("id", currentIndex);
+        mediaHTML.setAttribute("id", media.id);
         mediaHTML.setAttribute("src", link + media.image);
         mediaHTML.setAttribute("alt", "Photographie avec le titre " + media.title);
         mediaHTML.classList.add("mediaElement");
@@ -20,7 +21,7 @@ function createMedia(media, name, currentIndex) {
         a.setAttribute("href", link + media.video);
         a.setAttribute("onclick", "return displayLightbox(event,'" + link + media.video + "', 'video', '" + media.title + "', '" + currentIndex + "')");
         mediaHTML = document.createElement("video");
-        mediaHTML.setAttribute("id", currentIndex);
+        mediaHTML.setAttribute("id", media.id);
         mediaHTML.setAttribute("controls", "");
         const src = document.createElement("source");
         src.setAttribute("src", link + media.video);
@@ -37,6 +38,7 @@ function createMedia(media, name, currentIndex) {
     likesSpan.classList.add("likes");
     likesP.classList.add("nb_likes");
     likesP.setAttribute("id", "plikes-" + currentIndex);
+    likesP.classList.add("mediaid-" + media.id);
     likesP.textContent = media.likes;
     likesImg.setAttribute("src", "assets/icons/like_single.svg");
     likesImg.classList.add("likes_single_img");

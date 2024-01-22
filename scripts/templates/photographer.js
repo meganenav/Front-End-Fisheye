@@ -1,3 +1,4 @@
+// Template pour afficher les informations des photographes
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -39,7 +40,7 @@ function photographerTemplate(data) {
     return { name, picture, getUserCardDOM }
 }
 
-    
+// Template pour afficher les infos du photographe en particulier
 function photographerTemplateInfos(photographerInfos) {
     const photographer = photographerInfos;
     const name = photographer.name;

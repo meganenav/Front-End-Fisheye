@@ -1,3 +1,4 @@
+// Affiche la modale de contact
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     const titleModal = document.getElementById("title-modal");
@@ -10,6 +11,7 @@ function displayModal() {
     titleModal.innerHTML = "Contactez-moi<br>" + namePhotographer;
 }
 
+//Ferme la modale de contact
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
@@ -19,6 +21,7 @@ function closeModal() {
     modal.setAttribute("aria-hidden", "true");
 }
 
+// Validation du formulaire de contact
 function validate(event) {
     event.preventDefault();
     const firstName = document.getElementById("first-name").value;
@@ -44,6 +47,7 @@ function validate(event) {
     return false;
 }
 
+// Vérifications sur la validation des champs de formulaire
 function checkInput(element, type) {
     if(element && type === "name" && element.length > 2) {
         return true;
@@ -61,6 +65,7 @@ function checkInput(element, type) {
     return false;
 }
 
+// Fermeture de la modale avec la touche echap
 const modal = document.getElementById("contact_modal");
 const modalHidden = modal.getAttribute("aria-hidden");
 document.addEventListener("keydown", (event) => {
