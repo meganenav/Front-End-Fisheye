@@ -8,16 +8,19 @@ function sortFunction(photographerMedia, name, mediaLiked) {
     popularityButton.addEventListener("click", function() {
         const newPhotographerMedia = setCurrentLikes(photographerMedia);
         sortBy("popularity", newPhotographerMedia, name, mediaLiked);
+        reduce();
     });
     const dateButton = document.querySelector(".date-sort");
     dateButton.addEventListener("click", function() { 
         const newPhotographerMedia = setCurrentLikes(photographerMedia);
         sortBy("date", newPhotographerMedia, name, mediaLiked);
+        reduce();
     });
     const titleButton = document.querySelector(".title-sort");
     titleButton.addEventListener("click", function() { 
         const newPhotographerMedia = setCurrentLikes(photographerMedia);
         sortBy("title", newPhotographerMedia, name, mediaLiked);
+        reduce();
     });
 }
 

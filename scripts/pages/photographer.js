@@ -1,10 +1,7 @@
 //Ce qui concerne la page Photographe
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-if(!id) {
-    console.log("404");
-}
-else {    
+if(id) {
     async function getPhotographer(id) {
         const reponse = await fetch("data/photographers.json");
         const photographers = await reponse.json();
@@ -56,5 +53,10 @@ else {
         displayMediaPhotographer(photographer[1], photographer[0].name);
     }
     
-    init();
+    window.onload = (event) => {
+        init();
+    };
+}
+else {    
+    document.location.assign("index.html");
 }

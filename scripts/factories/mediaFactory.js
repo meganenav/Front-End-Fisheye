@@ -39,6 +39,7 @@ function createMedia(media, name, currentIndex) {
     const likesSpan = document.createElement("span");
     const likesImg = document.createElement("img");
     const likesP = document.createElement("p");
+    likesP.classList.add("likes-block");
     likesSpan.classList.add("nb_likes");
     likesSpan.setAttribute("id", "plikes-" + currentIndex);
     likesSpan.classList.add("mediaid-" + media.id);

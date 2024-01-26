@@ -101,7 +101,7 @@
 
 .tri-elements span, .tri-elements-hidden span {
     display: flex;
-    column-gap: 10px;
+    column-gap: 20px;
 }
 
 .tri-elements a, .tri-elements-hidden a {
@@ -137,6 +137,13 @@
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.likes-block {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .nb_likes {

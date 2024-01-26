@@ -20,5 +20,7 @@ async function init() {
     displayData(photographers);
 }
 
-init();
+window.onload = (event) => {
+    init();
+};
     
