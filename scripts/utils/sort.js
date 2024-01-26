@@ -27,6 +27,8 @@ function expand() {
     const triElementsHidden = document.querySelector(".tri-elements-hidden");
     triElements.style.display = "none";
     triElementsHidden.style.display = "flex";
+    triElements.setAttribute("aria-hidden", "true");
+    triElementsHidden.setAttribute("aria-hidden", "false");
 }
 
 // Ferme la liste déroulante de filtres
@@ -35,6 +37,8 @@ function reduce() {
     const triElementsHidden = document.querySelector(".tri-elements-hidden");
     triElements.style.display = "flex";
     triElementsHidden.style.display = "none";
+    triElements.setAttribute("aria-hidden", "false");
+    triElementsHidden.setAttribute("aria-hidden", "true");
 }
 
 // Filtre en fonction des différents éléments

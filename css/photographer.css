@@ -64,11 +64,11 @@
     align-items: center;
 }
 
-.pricePhotographer span {
+.pricePhotographer p {
     display: flex;
 }
 
-.pricePhotographer span img {
+.pricePhotographer img {
     margin-left: 20px;
 }
 
@@ -139,9 +139,8 @@
     border-radius: 5px;
 }
 
-.likes {
-    display: flex;
-    align-items: center;
+.nb_likes {
+    margin-right: 5px;
 }
 
 .likes_single_img {

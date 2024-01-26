@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xml:lang="fr">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/photographer.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   <body>
     <header>
       <a href="index.html" aria-label="Lien vers la page d'accueil">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page">
       </a>
     </header>
     <main id="main" aria-hidden="false">
@@ -19,11 +19,17 @@
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
       <div class="tri">Trier par 
-        <div class="tri-elements">
-          <span><a class="popularity-sort">Popularité</a><img class="expand-button" src="assets/icons/expand_more.svg" /></span>
+        <div class="tri-elements" role="navigation" aria-hidden="false">
+          <span>
+            <a class="popularity-sort">Popularité</a>
+            <img class="expand-button" src="assets/icons/expand_more.svg" alt="Expand menu button">
+          </span>
         </div>
-        <div class="tri-elements-hidden">
-          <span><a class="popularity-sort-hidden">Popularité</a><img class="reduce-button" src="assets/icons/expand_less.svg" /></span>
+        <div class="tri-elements-hidden" role="navigation" aria-hidden="true">
+          <span>
+            <a class="popularity-sort-hidden">Popularité</a>
+            <img class="reduce-button" src="assets/icons/expand_less.svg" alt="Reduce menu button">
+          </span>
           <hr>
           <a class="date-sort">Date</a>
           <hr>
@@ -35,20 +41,20 @@
 			<div class="modal">
 				<header>
           <h2 id="title-modal">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" aria-label="Close contact form" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" aria-label="Close contact form">
         </header>
 				<form>
 					<div>
 						<label for="first-name">Prénom</label>
-						<input type="text" id="first-name" aria-label="First name" />
+						<input type="text" id="first-name" aria-label="First name">
 					</div>
           <div>
 						<label for="last-name">Nom</label>
-						<input type="text" id="last-name" aria-label="Last name" />
+						<input type="text" id="last-name" aria-label="Last name">
 					</div>
           <div>
 						<label for="mail">Mail</label>
-						<input type="text" id="mail" aria-label="Email" />
+						<input type="text" id="mail" aria-label="Email">
 					</div>
           <div>
 						<label for="message">Votre message</label>
@@ -63,7 +69,7 @@
         <div class="lightbox-controls">
           <div class="lightbox"></div>
           <div class="close-button">
-            <img src="assets/icons/close_lightbox.svg" onclick="closeLightbox()" alt="Fermeture de la lightbox" aria-label="Close contact form" />
+            <img src="assets/icons/close_lightbox.svg" onclick="closeLightbox()" alt="Fermeture de la lightbox" aria-label="Close lightbox">
           </div>
         </div>
         <div class="title_media_element"></div>

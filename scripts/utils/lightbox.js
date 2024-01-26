@@ -11,10 +11,12 @@ function displayLightbox(event, link, type, title, currentIndex) {
     const titleP = document.createElement("p");
     previousButton.setAttribute("src", "assets/icons/previous.svg");
     previousButton.setAttribute("aria-label", "Previous media");
+    previousButton.setAttribute("alt", "Previous Button");
     previousButton.classList.add("previous");
     previousButton.setAttribute("onclick", "return previousMedia(" + currentIndex + ");");
     nextButton.setAttribute("src", "assets/icons/next.svg");
     nextButton.setAttribute("aria-label", "Next media");
+    nextButton.setAttribute("alt", "Next button");
     nextButton.classList.add("next");
     nextButton.setAttribute("onclick", "return nextMedia(" + currentIndex + ");");
     let media = "";
@@ -79,7 +81,7 @@ function carouselMedia(currentIndex, direction) {
         type = "image";
     }
     else {
-        link = document.getElementById(newIndex).querySelector("source").src;
+        link = document.querySelector(".mediaElement-" + newIndex).querySelector("source").src;
         type = "video";
     }
     displayLightbox(event, link, type, title, newIndex);

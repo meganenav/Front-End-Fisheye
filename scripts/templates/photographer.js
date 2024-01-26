@@ -5,7 +5,7 @@ function photographerTemplate(data) {
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
+        const article = document.createElement("article");
         const a = document.createElement("a");
         a.setAttribute("href", "photographer.html?id=" + id);
         a.setAttribute("aria-label", "Lien vers la page du photographe " + name);
@@ -37,7 +37,7 @@ function photographerTemplate(data) {
         article.appendChild(priceP);
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture, getUserCardDOM };
 }
 
 // Template pour afficher les infos du photographe en particulier
@@ -53,7 +53,7 @@ function photographerTemplateInfos(photographerInfos) {
     const likes = 0;
 
     function getUserInfos() {
-        const article = document.createElement( 'article' );
+        const article = document.createElement("article");
         const h1 = document.createElement("h1");
         h1.classList.add("name");
         h1.textContent = name;
@@ -70,16 +70,17 @@ function photographerTemplateInfos(photographerInfos) {
         const likesSpan = document.createElement("span");
         const likesImg = document.createElement("img");
         const likesP = document.createElement("p");
-        likesP.classList.add("likes");
-        likesP.textContent = likes;
+        likesSpan.classList.add("likes");
+        likesSpan.textContent = likes;
         likesImg.setAttribute("src", "assets/icons/like_total.svg");
+        likesImg.setAttribute("alt", "Image coeur pour le total des likes");
         const priceP = document.createElement("p");
         priceP.textContent = price + "€ / jour";
         priceDiv.classList.add("pricePhotographer");
-        priceDiv.appendChild(likesSpan);
+        priceDiv.appendChild(likesP);
         priceDiv.appendChild(priceP);
-        likesSpan.appendChild(likesP);
-        likesSpan.appendChild(likesImg);
+        likesP.appendChild(likesSpan);
+        likesP.appendChild(likesImg);
         article.appendChild(h1);
         article.appendChild(pLocation);
         article.appendChild(pTagline);
