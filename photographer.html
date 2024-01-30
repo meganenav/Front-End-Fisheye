@@ -44,21 +44,21 @@
           <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" aria-label="Close contact form">
         </header>
 				<form>
-					<div>
+					<div id="block-first-name">
 						<label for="first-name">Prénom</label>
-						<input type="text" id="first-name" aria-label="First name">
+						<input type="text" id="first-name" class="form-input" aria-label="First name">
 					</div>
-          <div>
+          <div id="block-last-name">
 						<label for="last-name">Nom</label>
-						<input type="text" id="last-name" aria-label="Last name">
+						<input type="text" id="last-name" class="form-input" aria-label="Last name">
 					</div>
-          <div>
+          <div id="block-mail">
 						<label for="mail">Mail</label>
-						<input type="text" id="mail" aria-label="Email">
+						<input type="text" id="mail" class="form-input" aria-label="Email">
 					</div>
-          <div>
+          <div id="block-message">
 						<label for="message">Votre message</label>
-						<textarea id="message" aria-label="Your message"></textarea>
+						<textarea id="message" class="form-input" aria-label="Your message"></textarea>
 					</div>
           <button class="contact_button" aria-label="Send" onclick="return validate(event);">Envoyer</button>
 				</form>

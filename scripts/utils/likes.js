@@ -1,4 +1,5 @@
 // Ajoute un like si l'image liée n'a pas déjà été likée (class liked et/ou présente dans tableau mediaLiked)
+// eslint-disable-next-line no-unused-vars
 function likesAdd(mediaLiked) {
     const likes = document.querySelectorAll(".likes_single_img");
     

@@ -1,4 +1,5 @@
 // Regroupe les appels aux fonctions pour la fonctionnalité de filtre
+// eslint-disable-next-line no-unused-vars
 function sortFunction(photographerMedia, name, mediaLiked) {
     const expandButton = document.querySelector(".expand-button");
     expandButton.addEventListener("click", expand);
@@ -57,8 +58,11 @@ function sortBy(sortBy, photographerMedia, name, mediaLiked) {
     if(sortBy === "title") {
         photographerMedia.sort(compareTitles);
     }
+    // eslint-disable-next-line no-undef
     displayMediaElements(photographerMedia, name);
+    // eslint-disable-next-line no-undef
     likesAdd(mediaLiked);
+    // eslint-disable-next-line no-undef
     getPhotographerLikes();
 }
 

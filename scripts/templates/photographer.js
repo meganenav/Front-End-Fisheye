@@ -1,4 +1,5 @@
 // Template pour afficher les informations des photographes
+// eslint-disable-next-line no-unused-vars
 function photographerTemplate(data) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -41,6 +42,7 @@ function photographerTemplate(data) {
 }
 
 // Template pour afficher les infos du photographe en particulier
+// eslint-disable-next-line no-unused-vars
 function photographerTemplateInfos(photographerInfos) {
     const photographer = photographerInfos;
     const name = photographer.name;

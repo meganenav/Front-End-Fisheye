@@ -1,4 +1,5 @@
 //Création du média avec ses likes, son titre
+// eslint-disable-next-line no-unused-vars
 function createMedia(media, name, currentIndex) {
     const article = document.createElement("article");
     const a = document.createElement("a");
