@@ -109,3 +109,16 @@ function setCurrentLikes(photographerMedia) {
     });
     return photographerMedia;
 }
+
+//Ecoute le clavier pour le tri
+document.addEventListener("keydown", (event) => {
+    const expandButtonLink = document.querySelector(".expand-button-link");
+    const reduceButtonLink = document.querySelector(".reduce-button-link");
+    const activeElement = document.activeElement;
+    if(expandButtonLink === activeElement && event.key === "Enter") {
+        expand();
+    }
+    if(reduceButtonLink === activeElement && event.key === "Enter") {
+        reduce();
+    }
+});

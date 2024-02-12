@@ -167,6 +167,7 @@ function checkInput(element, type) {
     return false;
 }
 
+// Ajoute un message d'erreur
 function addErrorMessage(message, errorClassP, errorClassDiv, divForm) {
     const error = document.createElement("p");
     error.classList.add(errorClassP);
@@ -175,6 +176,7 @@ function addErrorMessage(message, errorClassP, errorClassDiv, divForm) {
     divForm.appendChild(error);
 }
 
+// Enlève le message d'erreur
 function removeErrorMessage(errorP, errorClassDiv, divForm) {
     document.querySelector(errorP).remove();
     divForm.classList.remove(errorClassDiv);
