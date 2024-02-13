@@ -1,19 +1,24 @@
 // Affiche la lightbox avec l'image / vidéo et le titre
 function displayLightbox(event, link, type, title, currentIndex) {
     event.preventDefault();
+    const main = document.querySelector("main");
     const lightbox = document.getElementById("lightbox_modal");
     const lightboxContent = document.querySelector(".lightbox");
     const titleMedia = document.querySelector(".title_media_element");
     lightboxContent.innerHTML = "";
     titleMedia.innerHTML = "";
+    const aPrevious = document.createElement("a");
+    const aNext = document.createElement("a");
     const previousButton = document.createElement("img");
     const nextButton = document.createElement("img");
     const titleP = document.createElement("p");
+    aPrevious.setAttribute("href", "#");
     previousButton.setAttribute("src", "assets/icons/previous.svg");
     previousButton.setAttribute("aria-label", "Previous media");
     previousButton.setAttribute("alt", "Previous Button");
     previousButton.classList.add("previous");
     previousButton.setAttribute("onclick", "return previousMedia(" + currentIndex + ");");
+    aNext.setAttribute("href", "#");
     nextButton.setAttribute("src", "assets/icons/next.svg");
     nextButton.setAttribute("aria-label", "Next media");
     nextButton.setAttribute("alt", "Next button");
@@ -39,18 +44,22 @@ function displayLightbox(event, link, type, title, currentIndex) {
         media.classList.add("mediaLightbox");
         media.style.maxHeight = (window.innerHeight - 100) + "px";
     }
-    lightboxContent.appendChild(previousButton);
+    lightboxContent.appendChild(aPrevious);
+    aPrevious.appendChild(previousButton);
     lightboxContent.appendChild(media);
-    lightboxContent.appendChild(nextButton);
+    lightboxContent.appendChild(aNext);
+    aNext.appendChild(nextButton);
     titleMedia.appendChild(titleP);
     document.body.style.overflow = "hidden";
     lightbox.style.display = "flex";
     lightbox.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "true");
     return false;
 }
 
 // Ferme la lightbox
 function closeLightbox() {
+    const main = document.querySelector("main");
     const lightbox = document.getElementById("lightbox_modal");
     const lightboxContent = document.querySelector(".lightbox");
     const titleMedia= document.querySelector(".title_media_element");
@@ -58,6 +67,7 @@ function closeLightbox() {
     titleMedia.innerHTML = "";
     lightbox.style.display = "none";
     lightbox.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "auto";
 }
 

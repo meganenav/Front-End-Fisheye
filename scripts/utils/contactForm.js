@@ -1,6 +1,7 @@
 // Affiche la modale de contact
 // eslint-disable-next-line no-unused-vars
 function displayModal() {
+    const main = document.querySelector("main");
     const modal = document.getElementById("contact_modal");
     const titleModal = document.getElementById("title-modal");
     const namePhotographer = document.querySelector(".name").innerHTML;
@@ -9,17 +10,20 @@ function displayModal() {
     document.body.style.overflow = "hidden";
     modal.style.backgroundColor = "rgba(196, 196, 196, 0.40)";
     modal.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "true");
     titleModal.innerHTML = "Contactez-moi<br>" + namePhotographer;
 }
 
 //Ferme la modale de contact
 function closeModal() {
+    const main = document.querySelector("main");
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     modal.style.justifyContent = "";
     document.body.style.overflow = "auto";
     modal.style.background = "";
     modal.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "false");
 }
 
 //Constantes du formulaire
