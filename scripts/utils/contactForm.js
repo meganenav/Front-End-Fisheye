@@ -11,6 +11,7 @@ function displayModal() {
     modal.style.backgroundColor = "rgba(196, 196, 196, 0.40)";
     modal.setAttribute("aria-hidden", "false");
     main.setAttribute("aria-hidden", "true");
+    document.getElementById("first-name").focus();
     titleModal.innerHTML = "Contactez-moi<br>" + namePhotographer;
 }
 
@@ -24,6 +25,14 @@ function closeModal() {
     modal.style.background = "";
     modal.setAttribute("aria-hidden", "true");
     main.setAttribute("aria-hidden", "false");
+    const formSentMessage = document.querySelector(".form-sent-message");
+    if(formSentMessage) {
+        formSentMessage.remove();
+    }
+    const formErrorMessage = document.querySelector(".form-error-message");
+    if(formErrorMessage) {
+        formErrorMessage.remove();
+    }
 }
 
 //Constantes du formulaire
@@ -77,6 +86,7 @@ function validate(event) {
         }
         const pValidForm =  document.createElement("p");
         pValidForm.classList.add("form-sent-message");
+        pValidForm.setAttribute("aria-label", "Message envoyé");
         pValidForm.textContent = "Le formulaire a été envoyé";
         divMessage.appendChild(pValidForm);
     }
@@ -151,7 +161,7 @@ function checkInput(element, type) {
         }
     }
     if(element && type === "message") {
-        if(element.length > 5) {
+        if(element.length >= 5) {
             if(divMessage.classList.contains("errorMessage")) {
                 removeErrorMessage(".pErrorMessage", "errorMessage", divMessage);
             }

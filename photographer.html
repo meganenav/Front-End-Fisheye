@@ -45,8 +45,10 @@
 			<div class="modal">
 				<header>
           <h2 id="title-modal">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" aria-label="Close contact form">
-        </header>
+          <a href="#" class="close-contact-modal">
+            <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermeture de la modale" aria-label="Close contact form">
+          </a>
+          </header>
 				<form>
 					<div id="block-first-name">
 						<label for="first-name">Prénom</label>
@@ -64,7 +66,7 @@
 						<label for="message">Votre message</label>
 						<textarea id="message" class="form-input" aria-label="Your message"></textarea>
 					</div>
-          <button class="contact_button" aria-label="Send" onclick="return validate(event);">Envoyer</button>
+          <button class="submit_button" aria-label="Send" onclick="return validate(event);">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -73,7 +75,9 @@
         <div class="lightbox-controls">
           <div class="lightbox"></div>
           <div class="close-button">
-            <img src="assets/icons/close_lightbox.svg" onclick="closeLightbox()" alt="Fermeture de la lightbox" aria-label="Close lightbox">
+            <a href="#">
+              <img src="assets/icons/close_lightbox.svg" onclick="closeLightbox()" alt="Fermeture de la lightbox" aria-label="Close lightbox">
+            </a>
           </div>
         </div>
         <div class="title_media_element"></div>

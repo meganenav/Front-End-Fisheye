@@ -13,12 +13,14 @@ function displayLightbox(event, link, type, title, currentIndex) {
     const nextButton = document.createElement("img");
     const titleP = document.createElement("p");
     aPrevious.setAttribute("href", "#");
+    aPrevious.classList.add("link-previous");
     previousButton.setAttribute("src", "assets/icons/previous.svg");
     previousButton.setAttribute("aria-label", "Previous media");
     previousButton.setAttribute("alt", "Previous Button");
     previousButton.classList.add("previous");
     previousButton.setAttribute("onclick", "return previousMedia(" + currentIndex + ");");
     aNext.setAttribute("href", "#");
+    aNext.classList.add("link-next");
     nextButton.setAttribute("src", "assets/icons/next.svg");
     nextButton.setAttribute("aria-label", "Next media");
     nextButton.setAttribute("alt", "Next button");
@@ -54,6 +56,7 @@ function displayLightbox(event, link, type, title, currentIndex) {
     lightbox.style.display = "flex";
     lightbox.setAttribute("aria-hidden", "false");
     main.setAttribute("aria-hidden", "true");
+    document.querySelector(".link-next").focus();
     return false;
 }
 
@@ -122,18 +125,31 @@ function keyCarouselMedia(direction) {
 
 // Ecoute le clavier
 const lightbox = document.getElementById("lightbox_modal");
-const lightboxHidden = lightbox.getAttribute("aria-hidden");
+let lightboxHidden;
 document.addEventListener("keydown", (event) => {
+    lightboxHidden = lightbox.getAttribute("aria-hidden");
     //Sur appui de la touche échap
-    if(lightboxHidden === "true" && event.key === "Escape") {
+    if(lightboxHidden === "false" && event.key === "Escape") {
         closeLightbox();
     }
     //Sur appui de la flèche gauche
-    if(lightboxHidden === "true" && event.key === "ArrowLeft") {
+    if(lightboxHidden === "false" && event.key === "ArrowLeft") {
         keyCarouselMedia("previous");
     }
     //Sur appui de la flèche droite
-    if(lightboxHidden === "true" && event.key === "ArrowRight") {
+    if(lightboxHidden === "false" && event.key === "ArrowRight") {
         keyCarouselMedia("next");
+    }
+    //Lorsqu'on appuie sur entrée et que le focus est sur le bouton suivant, l'image suivante s'affiche
+    if(document.querySelector(".next")){
+        if(lightboxHidden === "false" && event.key === "Enter" && document.querySelector(".link-next") === document.activeElement) {
+            keyCarouselMedia("next");
+        }
+    }
+    //Lorsqu'on appuie sur entrée et que le focus est sur le bouton précédent, l'image précédente s'affiche
+    if(document.querySelector(".previous")){
+        if(lightboxHidden === "false" && event.key === "Enter" && document.querySelector(".link-previous") === document.activeElement) {
+            keyCarouselMedia("previous");
+        }
     }
 });
