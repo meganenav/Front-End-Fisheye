@@ -25,4 +25,3 @@ async function init() {
 window.onload = (event) => {
     init();
 };
-    
