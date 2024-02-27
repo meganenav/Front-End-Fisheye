@@ -38,8 +38,11 @@ function createMedia(media, name, currentIndex) {
     pTitle.classList.add("title-media");
     pTitle.textContent = media.title;
     const likesSpan = document.createElement("span");
+    const likesA = document.createElement("a");
     const likesImg = document.createElement("img");
     const likesP = document.createElement("p");
+    likesA.setAttribute("href", "#");
+    likesA.classList.add("likes-link");
     likesP.classList.add("likes-block");
     likesSpan.classList.add("nb_likes");
     likesSpan.setAttribute("id", "plikes-" + currentIndex);
@@ -55,7 +58,8 @@ function createMedia(media, name, currentIndex) {
     article.appendChild(divDetails);
     divDetails.appendChild(pTitle);
     divDetails.appendChild(likesP);
+    likesA.appendChild(likesImg);
     likesP.appendChild(likesSpan);
-    likesP.appendChild(likesImg);
+    likesP.appendChild(likesA);
     return article;
 }

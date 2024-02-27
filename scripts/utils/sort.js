@@ -33,6 +33,7 @@ function expand() {
     triElementsHidden.style.display = "flex";
     triElements.setAttribute("aria-hidden", "true");
     triElementsHidden.setAttribute("aria-hidden", "false");
+    document.querySelector(".popularity-sort-hidden").focus();
 }
 
 // Ferme la liste déroulante de filtres
