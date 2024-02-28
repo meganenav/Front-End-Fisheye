@@ -19,6 +19,7 @@ function displayModal() {
 function closeModal() {
     const main = document.querySelector("main");
     const modal = document.getElementById("contact_modal");
+    const form = document.querySelector("form");
     modal.style.display = "none";
     modal.style.justifyContent = "";
     document.body.style.overflow = "auto";
@@ -33,6 +34,7 @@ function closeModal() {
     if(formErrorMessage) {
         formErrorMessage.remove();
     }
+    form.reset();
 }
 
 //Constantes du formulaire
@@ -73,6 +75,7 @@ function validate(event) {
     const checkMail = checkInput(mail.value, "mail");
     const checkMessage = checkInput(message.value, "message");
     const pErrorForm = document.querySelector(".form-error-message");
+    const pSentMessage = document.querySelector(".form-sent-message");
     
     if(checkFirstName && checkLastName && checkMail && checkMessage) {
         console.log("Le formulaire a bien été envoyé");
@@ -84,14 +87,19 @@ function validate(event) {
         if(pErrorForm) {
             pErrorForm.remove();
         }
-        const pValidForm =  document.createElement("p");
-        pValidForm.classList.add("form-sent-message");
-        pValidForm.setAttribute("aria-label", "Message envoyé");
-        pValidForm.textContent = "Le formulaire a été envoyé";
-        divMessage.appendChild(pValidForm);
+        if(!pSentMessage) {
+            const pValidForm =  document.createElement("p");
+            pValidForm.classList.add("form-sent-message");
+            pValidForm.setAttribute("aria-label", "Message envoyé");
+            pValidForm.textContent = "Le formulaire a été envoyé";
+            divMessage.appendChild(pValidForm);
+        }
     }
     else {
         if(!pErrorForm) {
+            if(pSentMessage) {
+                pSentMessage.remove();
+            }
             const pInvalidForm =  document.createElement("p");
             pInvalidForm.classList.add("form-error-message");
             pInvalidForm.textContent = "Le formulaire n'est pas correctement rempli";
@@ -105,7 +113,7 @@ function validate(event) {
 // Vérifications sur la validation des champs de formulaire
 function checkInput(element, type) {
     if(element && type === "firstname") {
-        if(element.length > 2) {
+        if(element.length >= 2) {
             if(divFirstName.classList.contains("errorFirstName")) {
                 removeErrorMessage(".pErrorFirstName", "errorFirstName", divFirstName);
             }
@@ -123,7 +131,7 @@ function checkInput(element, type) {
         }
     }
     if(element && type === "lastname") {
-        if(element.length > 2) {
+        if(element.length >= 2) {
             if(divLastName.classList.contains("errorLastName")) {
                 removeErrorMessage(".pErrorLastName", "errorLastName", divLastName);
             }
@@ -196,11 +204,19 @@ function removeErrorMessage(errorP, errorClassDiv, divForm) {
     divForm.classList.remove(errorClassDiv);
 }
 
-// Fermeture de la modale avec la touche echap
 const modal = document.getElementById("contact_modal");
-const modalHidden = modal.getAttribute("aria-hidden");
 document.addEventListener("keydown", (event) => {
-    if(modalHidden === "true" && event.key === "Escape") {
+    const modalHidden = modal.getAttribute("aria-hidden");
+    // Fermeture de la modale avec la touche echap
+    if(modalHidden === "false" && event.key === "Escape") {
         closeModal();
+    }
+    //Lorsqu'on arrive sur le bouton submit et qu'on tabule, on met le focus sur le début du formulaire
+    if(document.activeElement.classList.contains("submit_button") && event.key === "Tab") {
+        document.querySelector(".close-contact-modal").focus();
+    }
+    //Lorsqu'on arrive sur le bouton de fermeture de la modale et qu'on fait Tab+Shift, on met le focus sur le first-name
+    if(document.activeElement.classList.contains("close-contact-modal") && event.key === "Tab" && event.shiftKey) {
+        document.getElementById("first-name").focus();
     }
 });
